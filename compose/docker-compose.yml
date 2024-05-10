@@ -135,12 +135,12 @@ services:
       - traefik.http.services.odoo-db-https.loadbalancer.server.port=${ODOO_PORT}
       #---------------------------------------- routes for: odoo/longpolling ------------------------------------------------
       # http 
-      - traefik.http.routers.odoo-im-http.rule=Host(`${SITE_DOMAIN}`) && (PathPrefix(`/longpolling`))
+      - traefik.http.routers.odoo-im-http.rule=Host(`${SITE_DOMAIN}`) && (PathPrefix(`/websocket`))
       - traefik.http.routers.odoo-im-http.entrypoints=http
       #- traefik.http.routers.odoo-im-http.middlewares=redirect@file
       - traefik.http.routers.odoo-im-http.service=odoo-im
       # https 
-      - traefik.http.routers.odoo-im-https.rule=Host(`${SITE_DOMAIN}`) && (PathPrefix(`/longpolling`))
+      - traefik.http.routers.odoo-im-https.rule=Host(`${SITE_DOMAIN}`) && (PathPrefix(`/websocket`))
       - traefik.http.routers.odoo-im-https.entrypoints=https
       - traefik.http.routers.odoo-im-https.service=odoo-im
       - traefik.http.routers.odoo-im-https.tls.certresolver=le
